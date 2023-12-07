@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
@@ -35,6 +36,7 @@ class MemberServiceIntegrationTest {
     @Autowired MemberRepository memberRepository;
 
     @Test
+    @Commit // @Transactional을 통해 롤백 하는 것을 무시(?)하고 DB에 적용(commit)해줄 수 있게 하는 어노테이션
     void 회원가입() {
         // given : 무언가 주어졌을 때
         Member member = new Member();

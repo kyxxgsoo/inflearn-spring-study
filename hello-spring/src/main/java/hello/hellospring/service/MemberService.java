@@ -7,7 +7,10 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+
+@Transactional // Repository에서 JPA를 쓰려면 Service에서 꼭 @Transactional 어노테이션을 사용해야 한다.
 public class MemberService {
 
     private final MemberRepository memberRepository;
